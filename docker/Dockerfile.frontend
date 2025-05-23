@@ -12,7 +12,9 @@ COPY ./package.json ./package.json
 COPY ./turbo.json ./turbo.json
 COPY ./apps/web ./apps/web
 
-RUN echo "DATABASE_URL=$DATABASE_URL" > ./packages/.env
+RUN echo "DATABASE_URL=$DATABASE_URL" > /usr/src/app/.env \
+ && echo "DATABASE_URL=$DATABASE_URL" > /usr/src/app/packages/.env \
+ && echo "DATABASE_URL=$DATABASE_URL" > /usr/src/app/apps/web/.env
 
 RUN bun install
 RUN bun run db:generate
