@@ -4,7 +4,7 @@ export default async function Home() {
   const users = await prismaClient.user.findMany();
   return (
     <div>
-      Hi {JSON.stringify(users)}
+      Hello {JSON.stringify(users)}
     </div>
   );
 }
